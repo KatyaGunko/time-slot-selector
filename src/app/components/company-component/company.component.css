@@ -1,0 +1,19 @@
+h3, h5 {
+  color: #3e3e3ede;
+}
+
+.reservation {
+  height: 85px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  color: #585858;
+}
+
+.line {
+  width: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

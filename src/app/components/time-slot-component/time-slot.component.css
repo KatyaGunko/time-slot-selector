@@ -1,0 +1,20 @@
+.slot {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  color: #585858;
+  cursor: pointer;
+}
+
+.slot.disabled {
+  background-color: #ccc;
+  cursor: default;
+}
+
+.cancel {
+  width: 20px;
+  float: right;
+  margin: 14px;
+  cursor: pointer;
+}

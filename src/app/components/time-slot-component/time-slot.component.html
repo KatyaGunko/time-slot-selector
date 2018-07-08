@@ -1,0 +1,10 @@
+<div class="slot" [ngClass]="{'disabled': !isSlotAvailable()}">
+  <img *ngIf="isSelected()"
+       class="cancel"
+       src="https://cdn0.iconfinder.com/data/icons/the-essential/30/cancel-512.png"
+       (click)="clearReservation()"/>
+  <div (click)="setReservation()">
+    <div>Start: {{slot.startTime}}</div>
+    <div>End: {{slot.endTime}}</div>
+  </div>
+</div>

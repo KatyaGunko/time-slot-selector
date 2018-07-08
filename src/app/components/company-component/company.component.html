@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm" *ngFor="let company of companies$ | async">
+      <h3>{{company.name}}</h3>
+
+      <hr>
+
+      <div class="reservation">
+        <div class="reservation-time-slot" *ngIf="(reservations$ | async) && (reservations$ | async)[company.id]; else reservationNotDefined">
+          <div class="line">Reservation: {{(reservations$ | async)[company.id]?.day}}</div>
+          <div class="line">Start: {{(reservations$ | async)[company.id]?.startTime}}</div>
+          <div class="line">End: {{(reservations$ | async)[company.id]?.endTime}}</div>
+        </div>
+
+        <ng-template #reservationNotDefined>Reservation is not set.</ng-template>
+      </div>
+
+      <hr>
+
+      <div class="time-slots">
+        <div class="date" *ngFor="let date of company.timeSlotsDates">
+          <h5>{{date}}</h5>
+          <app-time-slot *ngFor="let timeSlot of company.timeSlots[date]"
+                         [slot]="timeSlot"
+                         (slotSelected)="setReservation($event, company)"
+                         (clearSlot)="clearReservation(company)"></app-time-slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
